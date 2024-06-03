@@ -57,6 +57,14 @@ const router = createRouter({
           meta: {
             isLogin: true
           }
+        }, ,
+        {
+          path: 'chatAI',
+          name: 'chatAI',
+          component: () => import('@/views/Layout/ChatAI/index.vue'),
+          meta: {
+            isLogin: true
+          }
         }
       ]
     },
@@ -83,20 +91,11 @@ const router = createRouter({
     // //   name: "webview",
     // //   component: () => import("@/views/WebView/index.vue"),
     // // },
-    // // // 语音通话
+    // 语音通话、视频通话
     {
-      path: '/telephone/voice',
-      name: 'telephoneVoice',
-      component: () => import('@/views/Telephone/Voice/index.vue'),
-      meta: {
-        isLogin: true
-      }
-    },
-    // // 视频通话
-    {
-      path: '/telephone/video',
-      name: 'telephoneVideo',
-      component: () => import('@/views/Telephone/Video/index.vue'),
+      path: '/telephone/:type',
+      name: 'telephone',
+      component: () => import('@/views/Telephone/VoiceOrVideo/index.vue'),
       meta: {
         isLogin: true
       }
